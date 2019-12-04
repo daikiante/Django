@@ -10,3 +10,9 @@ def home(request):
 
 def about(request):
     return HttpResponse('I Love Robots')
+
+def fixed(request):
+    return render(request, 'home.html')
+
+def practice(request):
+    return render(request, 'new/about.html')
