@@ -18,7 +18,8 @@
 
     <div class="container pt-5 border">
         <div class="row border">
-
+            <a href="{% url 'update_info' all.id %}">Update</a>
+            <a href="{%url 'delete' all.id%}">Delete</a>
                 <div class="col-2">
                     {{all.name}}
                 </div>

@@ -26,3 +26,22 @@ def create_info(request):
         return redirect(home)
 
     return render(request, 'all-info-form.html',{'form':form})
+
+def update_info(request, id):
+    all_items = ALLInfo.objects.get(id=id)
+    form = ALLInfoForm(request.POST or None, instance=all_items)
+
+    if form.is_valid():
+        form.save()
+        return redirect(home)
+
+    return render(request, 'all-info-form.html',{'form':form, 'all_items':all_items})
+
+def delete_info(request, id):
+    delete_info = ALLInfo.objects.get(id=id)
+
+    if request.method == 'POST':
+        delete_info.delete()
+        return redirect(home)
+
+    return render(request, 'info-delete.html', {'delete_info':delete_info})
