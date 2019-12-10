@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<div style="width: 70%;margin: 0px auto;">
+    <h1 style="text-align: center;">Welcome Memo App</h1>
+    <hr>
+    {% for memo in memos%}
+    <div>
+        <h3>{{memo.title}}</h3>
+        <div>{{ memo.text | truncatechars:100 }}</div>
+        <div style="text-align: right;">
+            <a href="{% url 'memo:detail' memo_id=memo.id %}">View</a>
+        </div>
+    </div>
+    <hr />
+    {% endfor %}
+</div>
+
+</body>
+</html>
