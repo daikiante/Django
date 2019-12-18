@@ -1,0 +1,31 @@
+{% extends 'products/base.html' %}
+{% block content %}
+
+
+
+
+<div class="container"></div>
+    <div class="row">
+
+        {% for product in object_list %}
+
+        <div class="col-4">
+            <img src="media/{{ product.mainimage }}" style="width: 300px; height: auto;">
+            <p><a href="{ url 'products:detail' }">{{ product.name }}</a></p>
+        </div>
+        {% endfor %}
+        
+    </div>
+
+
+
+
+
+
+
+{% endblock %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
