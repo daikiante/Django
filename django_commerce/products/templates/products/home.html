@@ -1,0 +1,34 @@
+{% extends 'products/base.html' %}
+{% block contents %}
+
+<div class="container">
+
+
+    <div class="row">
+
+        {% for product in products %}
+
+        <div class="col-md-4 col-sm-12">
+            <img src="{{ product.mainimage.url }}" style='width:300px; height:auto;'>
+            <h2>{{ product.name }} : {{ product.price }} Rs</h2>
+            <p>{{ product.category }}</p>
+            
+            <button type="button" class="btn btn-success">Add to cart</button>
+            <button type="button" class="btn btn-danger">Remove to cart</button>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+    {% endblock %}
