@@ -1,6 +1,8 @@
 from django.db import models
 
 from django.contrib.auth import get_user_model
+
+# .modelsだと同じ階層になってしまう。productsフォルダから呼び出すにはproducts.modelsとする。
 from products.models import Product
 
 
@@ -8,10 +10,10 @@ User = get_user_model()
 
 class Cart(models.Model):
     # Userとつなげる
-    user = models.ForeignKey(user.User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     # プロダクトとつなげる
-    item = models.ForeignKey(item.Product, on_delete=models.CASCADE)
+    item = models.ForeignKey(Product, on_delete=models.CASCADE)
 
     # カウントするためのフィールド
     quantity = models.IntegerField(default=1)
@@ -22,3 +24,13 @@ class Cart(models.Model):
 
     def __str__(self):
         return f'{self.quantity} of {self.item.name}'
+
+
+class Order(models.Model):
+    orderitems = models.ManyToManyField(Cart)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    ordered = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.user.username
