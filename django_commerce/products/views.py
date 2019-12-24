@@ -2,11 +2,10 @@ from django.shortcuts import render
 from .models import Product, Category
 from cart.models import Cart
 
-# Create your views here.
+from django.views.generic import ListView
+from products.models import Product
 
-def home(request):
-    products = Product.objects.all().order_by('-id')
-    context = {
-        'products': products
-    }
-    return render(request, 'products/home.html', context)
+# Create your views here.
+class Home(ListView):
+    model = Product
+    template_name = 'products/home.html'

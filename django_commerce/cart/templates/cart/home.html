@@ -1,0 +1,18 @@
+{% extends 'products/base.html' %}
+{% block contents %}
+
+<h2 class='cart-title p-5'>Your Cart</h2>
+
+    <div class="container">
+        {% for a in carts %}
+
+        <div class="row">
+            <p>{{ a }}</p>
+        </div>
+
+        {% endfor %}
+    </div>
+
+
+
+{% endblock %}

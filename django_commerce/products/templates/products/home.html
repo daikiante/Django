@@ -1,12 +1,15 @@
 {% extends 'products/base.html' %}
+
 {% block contents %}
+
+<h2 class='p-4 m-4' style='text-align: center;'>All Products</h2>
 
 <div class="container">
 
 
     <div class="row">
 
-        {% for product in products %}
+        {% for product in object_list %}
 
         <div class="col-md-4 col-sm-12">
             <img src="{{ product.mainimage.url }}" style='width:300px; height:auto;'>
