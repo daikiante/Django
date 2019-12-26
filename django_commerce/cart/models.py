@@ -25,6 +25,9 @@ class Cart(models.Model):
     def __str__(self):
         return f'{self.quantity} of {self.item.name}'
 
+    def get_total(self):
+        return self.item.price * self.quantity
+
 
 class Order(models.Model):
     orderitems = models.ManyToManyField(Cart)
@@ -34,3 +37,10 @@ class Order(models.Model):
 
     def __str__(self):
         return self.user.username
+
+    def get_totals(self):
+        total = 0
+        for order_item in self.orderitems.all():
+            total += order_item.get_total()
+
+        return total

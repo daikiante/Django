@@ -1,6 +1,14 @@
+{% load cart_tag %}
 
 <div class="nav">
-    <h1 class="p-1 ml-2">Products</h1>
+    <a href="{% url 'mainapp:home' %}"><h1 class="p-1 ml-2">Products</h1></a>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'mainapp:cart-home' %}">
+          <i class="fa fa-shopping-cart"></i> Cart
+          <span class="badge badge-light">{{ request.user | cart_total }}</span>
+        </a>
+    </li>
 </div>
 
 

@@ -16,8 +16,8 @@
             <h2>{{ product.name }} : {{ product.price }} Rs</h2>
             <p>{{ product.category }}</p>
             
-            <button type="button" class="btn btn-success">Add to cart</button>
-            <button type="button" class="btn btn-danger">Remove to cart</button>
+            <a href="cart/{{ product.slug }}"><button type="button" class="btn btn-success">Add to cart</button></a>
+            <a href="remove/{{ product.slug }}"><button type="button" class="btn btn-danger">Remove to cart</button></a>
 
         </div>
         {% endfor %}
