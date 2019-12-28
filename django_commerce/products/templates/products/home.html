@@ -6,26 +6,25 @@
 
 <div class="container">
 
-
     <div class="row">
 
         {% for product in object_list %}
 
         <div class="col-md-4 col-sm-12">
-            <img src="{{ product.mainimage.url }}" style='width:300px; height:auto;'>
+            <a href="{% url 'mainapp:detail' product.slug %}"><img src="{{ product.mainimage.url }}" style='width:300px; height:auto;'></a>
             <h2>{{ product.name }} : {{ product.price }} Rs</h2>
             <p>{{ product.category }}</p>
             
             <a href="cart/{{ product.slug }}"><button type="button" class="btn btn-success">Add to cart</button></a>
             <a href="remove/{{ product.slug }}"><button type="button" class="btn btn-danger">Remove to cart</button></a>
 
+
+<div class="p-3 m-3"></div>
+
         </div>
         {% endfor %}
     </div>
-
 </div>
-
-
 
 
 

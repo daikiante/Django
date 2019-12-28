@@ -1,0 +1,21 @@
+{% extends 'products/base.html' %}
+
+{% block contents %}
+
+<div class="container">
+    <div class="row">
+        <div class="offset-2 col-4">
+            <img src="/media/{{ object.mainimage }}" style='width: 300px; height:auto;'>
+        </div>
+        <div class="offset-1 col-4">
+            <p>{{ object.preview_text}}</p>
+            <p>{{ object.detail_text }}</p>
+            <p>Rs {{ object.price }}</p>
+        </div>
+    </div>
+</div>
+
+<a href="{% url 'mainapp:home' %}"><h3>Back</h3></a>
+
+
+{% endblock %}

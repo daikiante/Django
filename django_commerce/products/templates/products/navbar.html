@@ -3,12 +3,30 @@
 <div class="nav">
     <a href="{% url 'mainapp:home' %}"><h1 class="p-1 ml-2">Products</h1></a>
 
+    <!-- is_authenticated = ログインしている時 -->
+    <!-- 「ログインしている時のみ表示」という意味になる -->
+    {% if request.user.is_authenticated %}
     <li class="nav-item">
         <a class="nav-link" href="{% url 'mainapp:cart-home' %}">
           <i class="fa fa-shopping-cart"></i> Cart
           <span class="badge badge-light">{{ request.user | cart_total }}</span>
         </a>
     </li>
+
+    {% else %}
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="accounts/login/">Login</a></li>
+      <li class="breadcrumb-item"><a href="#">Signup</a></li>
+    </ol>
+    <li class="nav-item">
+      <a href="accounts/login/">Login</a>
+
+    </li>
+
+    
+    {% endif %}
+
+
 </div>
 
 

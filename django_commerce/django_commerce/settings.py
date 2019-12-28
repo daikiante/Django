@@ -28,6 +28,9 @@ INSTALLED_APPS = [
     'products',
     'cart',
     'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 ]
 
 MIDDLEWARE = [
@@ -119,3 +122,6 @@ MEDIA_URL = '/media/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "products/static"),
 )
+
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'
