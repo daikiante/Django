@@ -1,0 +1,49 @@
+{% extends 'products/base.html' %}
+{% block contents %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 well">
+            <div class="col-sm-12 form-legend">
+                <h2>Cart</h2>
+            </div>
+            <div class="col-sm-12 form-column">
+                <form action="success" method="post">
+                    <div class="form-group">
+                        <label for="email">Name</label>
+                        <input type="email" id="email" name="email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="email-confirm">City</label>
+                        <input type="email" id="email-confirm" name="emailConfirm" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Country</label>
+                        <input type="text" id="country" name="country" class="form-control" placeholder="Optional">
+                    </div>
+                    <div class="form-group">
+                        <label for="zip-code">Zip Code</label>
+                        <input type="text" id="zip-code" name="zipCode" class="form-control" placeholder="Optional">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Minimum 5 characters">
+                    </div>
+                    <div class="form-group">
+                        <label for="password-confirm">Confirm Password</label>
+                        <input type="password" id="password-confirm" name="passwordConfirm" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input id="termsOfUse" type="checkbox" name="termsOfUse"> Yes, I agree to terms of use.
+                            </label>
+                        </div>
+                    </div>
+                    <input type="submit" value="Sign Up" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

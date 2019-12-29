@@ -110,4 +110,8 @@ def decreaseCart(request, slug):
             return redirect("mainapp:cart-home")
     else:
         messages.info("You do not have an active order.")
-        return redirect("mainapp:cart-home")  
+        return redirect("mainapp:cart-home")
+
+
+def Checkout(request):
+    return render(request, 'cart/checkout.html')
