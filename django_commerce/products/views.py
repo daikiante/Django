@@ -9,6 +9,7 @@ from products.models import Product
 class Home(ListView):
     model = Product
     template_name = 'products/home.html'
+    
 
 
 from django.contrib.auth.mixins import LoginRequiredMixin
